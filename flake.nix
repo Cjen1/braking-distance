@@ -13,6 +13,8 @@
             pypkgs.numpy
             pypkgs.scipy
             pypkgs.sympy
+            pypkgs.seaborn
+            pypkgs.pandas
           ]);
       in {
         packages = { };
