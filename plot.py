@@ -72,13 +72,19 @@ def plot():
             so.Plot(df, "ts", 'v')
             .add(so.Line(), color='va')
             .label(
-                    x = 'Time from car in front (s)',
+                    x = 'Distance to car in front (seconds)',
                     y = 'Collision speed (mph)',
-                    color = 'Extra speed (mph)',
-                    title = f"Collision speed during emergency braking when from car is travelling at {vb_mph} mph"
+                    color = 'Speed delta (mph)',
+                    #title = f"Collision speed during emergency braking when from car is travelling at {vb_mph} mph"
+                    title = "\n".join([
+                            f"Collision speed when the car in front emergency brakes",
+                            f"The front car initially travels at {vb_mph} mph",
+                            f"Your are initially travelling <speed delta> faster and brake {tr} seconds later",
+                        ]),
                     )
         )
 
     p.save('collision_plot_time.pdf', bbox_inches="tight")
+    p.save('collision_plot_time.png', bbox_inches="tight")
 
 plot()
